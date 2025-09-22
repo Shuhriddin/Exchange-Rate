@@ -1,0 +1,49 @@
+=> 18.0.0.1 :- Date 22 Nov 2024
+:- Fixed AttributeError: 'account.move' object has no attribute 'payment_id.
+
+18.0.0.2 ==> Fixed issue of when we create multiple journal with companay currency and payment with differnt journal at that time differnce entry can't be generated and also when we confrim payment at that time manual currency rate can't be passed on joural entry.
+
+=> 18.0.0.3 :- Date 17 Dec 2024
+:- Fixed the issue with journal entries when paying a customer invoice or a vendor bill using Apply Manual Exchange.
+
+=> 18.0.0.4 :- Date 27 January 2025
+:- IMP -->  New Exchange Rate setting under accounting  --> Inverted Rate and  Normal Rate
+
+18.0.0.5 ==> When create picking from receipt and try to validate picking at that time trace back occurs.
+
+=> 18.0.0.6 :- Date 03 Feb 2025
+:- When we add multiple products to a purchase order that has manual exchange rates, the cost of the product appears wrong in stock valuation, so I fixed it.
+:- Fixed the inverted rate issue in the purchase order.
+
+
+=> 18.0.0.7 :- Date 01 Aprile 2025
+:- Fixed issue when create invoice from the hr_expense and add manual_currency functionality in hr expense module.
+
+=> 18.0.0.8 :- Date 09 Apr 2025
+:- The stock valuation appears incorrect when we add multiple of the same product to a purchase order using manual exchange rates.
+
+=> 18.0.0.9 :- Date 14 Apr 2025
+:- Fixed issue when make payment from the expense with direct company.
+
+=> 18.0.1.0 :- Date 25 Apr 2025
+:- When creating a new inventory adjustment for a product, an error was occurring.So I have fixed the issue.
+
+02/06/2025 | 18.0.1.1
+=>Fixed the issue raised while validating Internal Pickings.
+
+03/06/2025 | 18.0.1.2
+=>Fixed the issue of missing arguments in product product function.
+
+12/06/2025 | 18.0.1.3
+=>Fixed the issues of:
+    1>The issue of payment exchange difference
+    2>The issue of price unit when vendor price list used in po.
+
+16/06/2025 | 18.0.1.4
+=>Fixed the issue of payment difference amount in payment register wizard.
+
+4/7/2025 | 18.0.1.5
+==> Fixed issue of when we create one payment for multiple bills at that time trace back occurs and also when create multiple bills/invoices from list view action at that time rate will be checked and also show validation error for different rates and also update code for when we create bills from purchase order at that time in vendor bill create wrong credit/debit amount.
+
+=> 18.0.1.6 :- Date 12 Sep 2025
+:- In the reconcile view, when reconciling account invoices or bills, an error was occurring, So I fixed this issue.

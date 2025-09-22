@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="bi_view_account_payment_invoice_form_exchange_rate_field_add_inherit" model="ir.ui.view">
+            <field name="name">custom.bi.view.account.payment.invoice.form.exchange.rate.field.add.inherit</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+<xpath expr="//group[@name='group2']" position="after">
+  <group string="Custom Exchange Rate" name="custom_exchange_rate_group" col="4">
+
+    <!-- Qator 1: Amount + Currency yonma-yon, keng -->
+    <field name="custom_amount_uic" readonly="1" colspan="2"/>
+    <field name="custom_amount_currency_id" colspan="2"/>
+
+    <!-- Qator 2: Checkbox + Rate yonma-yon -->
+    <field name="manual_currency_rate_active_uic" colspan="1"/>
+    <field name="manual_currency_rate_uic"
+           nolabel="1"
+           colspan="2"
+           modifiers='{
+             "invisible": [["manual_currency_rate_active_uic","=",false]],
+             "required":  [["manual_currency_rate_active_uic","=",true]]
+           }'/>
+
+  </group>
+</xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
