@@ -6,25 +6,21 @@
             <field name="model">account.payment.register</field>
             <field name="inherit_id" ref="account.view_account_payment_register_form"/>
             <field name="arch" type="xml">
-<xpath expr="//group[@name='group2']" position="after">
-  <group string="Custom Exchange Rate" name="custom_exchange_rate_group" col="4">
-
-    <!-- Qator 1: Amount + Currency yonma-yon, keng -->
-    <field name="custom_amount_uic" readonly="1" colspan="2"/>
-    <field name="custom_amount_currency_id" colspan="2"/>
-
-    <!-- Qator 2: Checkbox + Rate yonma-yon -->
-    <field name="manual_currency_rate_active_uic" colspan="1"/>
-    <field name="manual_currency_rate_uic"
-           nolabel="1"
-           colspan="2"
-           modifiers='{
-             "invisible": [["manual_currency_rate_active_uic","=",false]],
-             "required":  [["manual_currency_rate_active_uic","=",true]]
-           }'/>
-
-  </group>
-</xpath>
+            <xpath expr="//group[@name='group2']" position="after">
+<!--                AS-->
+                <group name="group2">
+                            <label for="custom_amount_uic"/>
+                            <div name="amount_div" class="o_row">
+                                <field name="custom_amount_uic" force_save="1" readonly="not can_edit_wizard or can_group_payments and not group_payment" on_change="1"/>
+                                <field name="currency_id" required="1" options="{'no_create': True, 'no_open': True}" invisible="not can_edit_wizard or can_group_payments and not group_payment" on_change="1" can_create="True" can_write="True"/>
+                            </div>
+                            <field name="installments_switch_html" string="" widget="account_payment_register_html" invisible="not installments_switch_html"/>
+                            <field name="payment_date" on_change="1"/>
+                            <field name="communication" invisible="not can_edit_wizard or (can_group_payments and not group_payment)" on_change="1"/>
+                    <field name="manual_currency_rate_active_uic" on_change="1"/>
+                    <field name="manual_currency_rate_uic" invisible="manual_currency_rate_active_uic == False" required="manual_currency_rate_active_uic == True"/>
+                </group>
+            </xpath>
 
             </field>
         </record>
